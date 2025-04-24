@@ -115,17 +115,33 @@ index.html
 
 <section class="missao-visao-valores">
   <h2>🌟 Missão, Visão e Valores</h2>
-  <!-- Conteúdo da seção mantido -->
+  <div style="max-width: 800px; margin: auto;">
+    <h3>🎯 Missão</h3>
+    <p>Oferecer soluções acessíveis, seguras e humanizadas para a recuperação de crédito e reeducação financeira, ajudando nossos clientes a reconquistarem sua liberdade financeira com dignidade, informação e apoio contínuo.</p>
+
+    <h3>👁️ Visão</h3>
+    <p>Ser referência na Zona Leste de São Paulo (e em todo o Brasil) como a empresa mais confiável e eficaz na recuperação de crédito, contribuindo ativamente para uma sociedade mais consciente e financeiramente saudável.</p>
+
+    <h3>💎 Valores</h3>
+    <ul>
+      <li>✅ Comprometimento com a transformação da vida financeira dos nossos clientes.</li>
+      <li>✅ Transparência em todos os processos e comunicações.</li>
+      <li>✅ Ética e respeito em cada atendimento.</li>
+      <li>✅ Educação como ferramenta de empoderamento e mudança de vida.</li>
+      <li>✅ Acessibilidade, oferecendo soluções reais e eficazes para todos os públicos.</li>
+      <li>✅ Inovação constante em métodos de análise, proteção de CPF e aumento de score.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="cotacoes">
-  <div>
+  <div id="dolar">
     <h3>Dólar Comercial</h3>
-    <p>R$ 5,66</p>
+    <p>Carregando...</p>
   </div>
-  <div>
+  <div id="euro">
     <h3>Euro Comercial</h3>
-    <p>R$ 6,66</p>
+    <p>Carregando...</p>
   </div>
 </section>
 
@@ -153,6 +169,30 @@ index.html
 <footer>
   <p>&copy; 2025 Maná Cred Itaquera - Todos os direitos reservados.</p>
 </footer>
+
+<script>
+  // Função para obter cotações de Dólar e Euro
+  async function fetchCotacoes() {
+    try {
+      const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+      const data = await response.json();
+
+      const dolar = data.rates.BRL; // Cotação do Dólar
+      const euro = data.rates.EUR * dolar; // Cotação do Euro, convertido para BRL
+
+      // Exibindo as cotações na página
+      document.getElementById('dolar').innerHTML = `<h3>Dólar Comercial</h3><p>R$ ${dolar.toFixed(2)}</p>`;
+      document.getElementById('euro').innerHTML = `<h3>Euro Comercial</h3><p>R$ ${euro.toFixed(2)}</p>`;
+    } catch (error) {
+      console.error('Erro ao buscar cotações:', error);
+      document.getElementById('dolar').innerHTML = `<h3>Dólar Comercial</h3><p>Erro ao carregar cotação</p>`;
+      document.getElementById('euro').innerHTML = `<h3>Euro Comercial</h3><p>Erro ao carregar cotação</p>`;
+    }
+  }
+
+  // Carregar as cotações quando a página for carregada
+  window.onload = fetchCotacoes;
+</script>
 
 </body>
 </html>
