@@ -44,6 +44,26 @@ index.html
       background-color: var(--bege);
     }
 
+    .missao-visao-valores {
+      background-color: var(--bege);
+      padding: 50px 20px;
+    }
+
+    .missao-visao-valores h2 {
+      text-align: center;
+      color: var(--azul-marinho);
+      margin-bottom: 40px;
+    }
+
+    .missao-visao-valores h3 {
+      color: var(--azul-claro);
+      margin-top: 30px;
+    }
+
+    .missao-visao-valores ul {
+      padding-left: 20px;
+    }
+
     form {
       display: flex;
       flex-direction: column;
@@ -97,53 +117,34 @@ index.html
   <p>Especialistas em recuperar seu crédito, limpar seu nome e orientar na blindagem do CPF e aumento de score.</p>
 </section>
 
+<!-- NOVA SEÇÃO: MISSÃO, VISÃO E VALORES -->
+<section class="missao-visao-valores">
+  <h2>🌟 Missão, Visão e Valores</h2>
+
+  <div style="max-width: 800px; margin: auto;">
+    <h3>🎯 Missão</h3>
+    <p>Oferecer soluções acessíveis, seguras e humanizadas para a recuperação de crédito e reeducação financeira,
+    ajudando nossos clientes a reconquistarem sua liberdade financeira com dignidade, informação e apoio contínuo.</p>
+
+    <h3>👁️ Visão</h3>
+    <p>Ser referência na Zona Leste de São Paulo (e em todo o Brasil) como a empresa mais confiável e eficaz na
+    recuperação de crédito, contribuindo ativamente para uma sociedade mais consciente e financeiramente saudável.</p>
+
+    <h3>💎 Valores</h3>
+    <ul>
+      <li>✅ Comprometimento com a transformação da vida financeira dos nossos clientes.</li>
+      <li>✅ Transparência em todos os processos e comunicações.</li>
+      <li>✅ Ética e respeito em cada atendimento.</li>
+      <li>✅ Educação como ferramenta de empoderamento e mudança de vida.</li>
+      <li>✅ Acessibilidade, oferecendo soluções reais e eficazes para todos os públicos.</li>
+      <li>✅ Inovação constante em métodos de análise, proteção de CPF e aumento de score.</li>
+    </ul>
+  </div>
+</section>
+
 <section class="services">
   <h2>Nossos Serviços</h2>
   <ul>
     <li>Limpa Nome</li>
     <li>Blindagem de CPF</li>
-    <li>Aumento de Score</li>
-    <li>Educação Financeira</li>
-  </ul>
-</section>
-
-<section class="cotacoes">
-  <div id="dolar">Dólar: Carregando...</div>
-  <div id="euro">Euro: Carregando...</div>
-</section>
-
-<section class="formulario">
-  <h2>Entre em Contato</h2>
-  <form id="contatoForm">
-    <input type="text" name="nome" placeholder="Nome completo" required />
-    <input type="email" name="email" placeholder="E-mail" required />
-    <input type="tel" name="telefone" placeholder="Telefone" required />
-    <textarea name="mensagem" rows="4" placeholder="Mensagem"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 Maná Cred Itaquera. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-  async function buscarCotacoes() {
-    const res = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL");
-    const data = await res.json();
-    document.getElementById("dolar").innerText = "Dólar: R$ " + parseFloat(data.USDBRL.bid).toFixed(2);
-    document.getElementById("euro").innerText = "Euro: R$ " + parseFloat(data.EURBRL.bid).toFixed(2);
-  }
-
-  buscarCotacoes();
-  setInterval(buscarCotacoes, 60000);
-
-  document.getElementById("contatoForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    alert("Dados enviados com sucesso! Entraremos em contato.");
-    this.reset();
-  });
-</script>
-
-</body>
-</html>
+    <li>Aumento de Score</li
