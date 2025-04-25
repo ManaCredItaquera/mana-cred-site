@@ -29,20 +29,30 @@
       font-family: 'Poppins', sans-serif;
       background-color: var(--off-white);
       color: var(--preto);
-      background-image: url('fundo.jpg'); /* Aqui está a referência da imagem de fundo */
-      background-size: cover; /* A imagem será dimensionada para cobrir toda a tela */
-      background-position: center center; /* A imagem será centralizada */
+      background-image: url('fundo.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
     }
 
     header {
-      background-color: var(--azul-marinho);
+      background-color: rgba(11, 31, 64, 0.9);
       color: white;
       padding: 20px;
       text-align: center;
     }
 
+    header img {
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
     section {
       padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 20px;
+      border-radius: 10px;
     }
 
     .cotacoes {
@@ -115,6 +125,7 @@
 <body>
 
 <header>
+  <img src="logo.png" alt="Logo Maná Cred Itaquera" />
   <h1>Maná Cred Itaquera</h1>
   <p>Recuperação de Crédito • Educação Financeira</p>
 </header>
@@ -182,16 +193,14 @@
 </footer>
 
 <script>
-  // Função para obter cotações de Dólar e Euro
   async function fetchCotacoes() {
     try {
       const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
       const data = await response.json();
 
-      const dolar = data.rates.BRL; // Cotação do Dólar
-      const euro = data.rates.EUR * dolar; // Cotação do Euro, convertido para BRL
+      const dolar = data.rates.BRL;
+      const euro = data.rates.EUR * dolar;
 
-      // Exibindo as cotações na página
       document.getElementById('dolar').innerHTML = `<h3>Dólar Comercial</h3><p>R$ ${dolar.toFixed(2)}</p>`;
       document.getElementById('euro').innerHTML = `<h3>Euro Comercial</h3><p>R$ ${euro.toFixed(2)}</p>`;
     } catch (error) {
@@ -201,9 +210,8 @@
     }
   }
 
-  // Carregar as cotações quando a página for carregada
   window.onload = fetchCotacoes;
 </script>
 
 </body>
-</html>
+</html
